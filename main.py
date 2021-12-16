@@ -56,22 +56,23 @@ def assistantVoice(output):
 
 def audioRecognizer():
     speech = sr.Recognizer()
-    audio = ''
+    #audio = ''
 
     with sr.Microphone() as source:
         print("say your command: ")
-        audio = speech.listen(source,phrase_time_limit=15)
+        audio = speech.listen(source)#phrase_time_limit=15
+        text = ''
+        #print("stop.")
 
-    print("stop.")
+        try:
+            text = speech.recognize_google(audio,language="en-US")
+            print("your command: ",text)
+            #return text
 
-    try:
-        text = speech.recognize_google(audio,language="en-US")
-        print("your command: ",text)
-        return text
-
-    except:
-        assistantVoice("i can't hear your, try again")
-        return 0
+        except:
+            #assistantVoice("i can't hear your, try again")
+            print("i'm waiting for your command.")
+    return text
 
 
 def action(input_command):
