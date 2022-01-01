@@ -18,8 +18,10 @@ speechrecognition
 ~~~
 pip install SpeechRecognition
 ~~~
+Arduino connected to computer via USB cable. Arduino exchanges information with Python using pyfirmata library.
 ## The parts used in this project are:
 - SG90 Servo Motor *3
+- Arduino UNO
 - Ultrasonic module
 - LM35
 - SSR Relay
